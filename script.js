@@ -31,6 +31,11 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == computerSelection) {
         console.log('Tie Game. Play Again')
     }
+    else if ((playerSelection != 'Rock') ||
+              (playerSelection != 'Paper') ||
+              (playerSelection != 'Scissors')) {
+                console.log('Invalid input')
+              }
     else {
         console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
         return 2;
@@ -48,7 +53,7 @@ function game() {
 
         //User enters rock, paper, or scissors//
 
-        const playerSelection = prompt('Enter Rock, Paper, or Scissors');
+        let playerSelection = prompt('Enter Rock, Paper, or Scissors');
         if (playerSelection === null) {
             return;
         }
@@ -67,6 +72,9 @@ function game() {
     }
     else if (computerScore > playerScore) {
         console.log('You lost the game!')
+    }
+    else if (computerScore=playerScore) {
+        console.log('Tie Game.')
     }
     
 }
