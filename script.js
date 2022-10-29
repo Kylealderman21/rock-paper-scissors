@@ -13,8 +13,7 @@
 //Repeat the game until user or computer reaches 5 wins//
 
 //Computer randomly selects rock, paper or scissors from an array//
-let playerScore = 0;
-let computerScore = 0;
+
 
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -26,28 +25,43 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
         (playerSelection == 'Paper' && computerSelection == 'Rock')) {
             console.log("You Win! " + playerSelection + " beats " + computerSelection);
-            playerScore += 1;
+            return 1;
              }
     else if (playerSelection == computerSelection) {
         console.log('Tie Game. Play Again')
     }
-
     else {
-        console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection)
-        computerScore += 1;
-    }
-    console.log('Player score is: ' + playerScore)
-    console.log('Computer score is: '+ computerScore)
-}
-
-for (let i = 0; i < 5; i++) {
-    function game() {
-            playRound(playerSelection, computerSelection);
+        console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+        return 2;
     }
 }
 
-const computerSelection = getComputerChoice();
-console.log('Computer Selects: '+computerSelection);
-const playerSelection = "Rock";
-console.log('User Selects: '+playerSelection);
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++){
+        const computerSelection = getComputerChoice();
+        const playerSelection = prompt('Enter Rock, Paper, or Scissors');
+        let round = playRound(playerSelection, computerSelection);
+        if (round == 1) {
+            playerScore += 1
+        }
+        else if (round == 2) {
+            computerScore += 1
+        }
+    }
+    if (playerScore > computerScore) {
+        console.log('You won the game!')
+    }
+    else if (computerScore > playerScore) {
+        console.log('You lost the game!')
+    }
+    console.log('Player Score is: ' + playerScore);
+    console.log('Computer Score is: ' + computerScore);
+}
+
 game();
+
+
+   
