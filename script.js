@@ -49,8 +49,10 @@ function game() {
         //User enters rock, paper, or scissors//
 
         const playerSelection = prompt('Enter Rock, Paper, or Scissors');
-        let p = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-        let round = playRound(p, computerSelection);
+        if (playerSelection === null) {
+            return;
+        }
+        let round = playRound(playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1).toLowerCase(), computerSelection);
         if (round == 1) {
             playerScore += 1
         }
@@ -68,8 +70,6 @@ function game() {
     }
     
 }
-
-game();
 
 
    
