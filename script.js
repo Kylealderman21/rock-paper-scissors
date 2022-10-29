@@ -31,11 +31,6 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == computerSelection) {
         console.log('Tie Game. Play Again')
     }
-    else if ((playerSelection != 'Rock') ||
-              (playerSelection != 'Paper') ||
-              (playerSelection != 'Scissors')) {
-                console.log('Invalid input')
-              }
     else {
         console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
         return 2;
