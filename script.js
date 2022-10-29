@@ -1,6 +1,5 @@
-//User enters rock, paper, or scissors//
 
-//Conditions are checked//
+
 //If user selects rock and computer selects paper, user loses//
 //If user selects paper and computer selects rock, user wins//
 //If user selects scissors and computer selects rock, user loses//
@@ -10,15 +9,17 @@
 //If user selects rock and computer selects rock, tie game//
 //If user selects paper and computer selects paper, tie game//
 //If user selects scissors and computer selects scissors, ite game//
-//Repeat the game until user or computer reaches 5 wins//
+
 
 //Computer randomly selects rock, paper or scissors from an array//
-
 
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
 }
+
+
+//Conditions are checked//
 
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection == 'Rock' && computerSelection == 'Scissors') ||
@@ -40,10 +41,16 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    //Repeat the game for 5 rounds//
+
     for (let i = 0; i < 5; i++){
         const computerSelection = getComputerChoice();
+
+        //User enters rock, paper, or scissors//
+
         const playerSelection = prompt('Enter Rock, Paper, or Scissors');
-        let round = playRound(playerSelection, computerSelection);
+        let p = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        let round = playRound(p, computerSelection);
         if (round == 1) {
             playerScore += 1
         }
@@ -51,14 +58,15 @@ function game() {
             computerScore += 1
         }
     }
+    console.log('Player Score is: ' + playerScore);
+    console.log('Computer Score is: ' + computerScore);
     if (playerScore > computerScore) {
         console.log('You won the game!')
     }
     else if (computerScore > playerScore) {
         console.log('You lost the game!')
     }
-    console.log('Player Score is: ' + playerScore);
-    console.log('Computer Score is: ' + computerScore);
+    
 }
 
 game();
