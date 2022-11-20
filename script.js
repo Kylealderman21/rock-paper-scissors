@@ -1,8 +1,6 @@
 //Coded by Kyle Alderman on October 29th, 2022//
 
-
 //Computer randomly selects rock, paper or scissors from an array//
-
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
@@ -24,16 +22,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+/*function game() {
     let playerScore = 0;
     let computerScore = 0;
 
     //Repeat the game for 5 rounds//
 
-    for (let i = 0; i < 5; i++){
+   // for (let i = 0; i < 5; i++){
         const computerSelection = getComputerChoice();
 
-        let playerSelection = prompt('Enter Rock, Paper, or Scissors');
+        //let playerSelection = prompt('Enter Rock, Paper, or Scissors');
 
         if (playerSelection === null) {
             return;
@@ -52,7 +50,7 @@ function game() {
         else if (round == 2) {
             computerScore += 1
         }
-    };
+//};
 
     console.log('Player Score is: ' + playerScore);
     console.log('Computer Score is: ' + computerScore);
@@ -66,7 +64,26 @@ function game() {
     else if (computerScore=playerScore) {
         console.log('Tie Game.')
     }
-}
+}*/
+
+const rockBtn = document.querySelector('#rockBtn');
+const paperBtn = document.querySelector('#paperBtn');
+const scissorsBtn = document.querySelector('#scissorsBtn');
+
+rockBtn.addEventListener('click', () => {
+    playRound('Rock', getComputerChoice());
+});
+
+paperBtn.addEventListener('click', () => {
+    playRound('Paper', getComputerChoice())
+});
+
+scissorsBtn.addEventListener('click', () => {
+    playRound('Scissors', getComputerChoice())
+});
+
+
+
 
 
    
