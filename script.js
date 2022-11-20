@@ -1,6 +1,9 @@
 //Coded by Kyle Alderman on October 29th, 2022//
 
 //Computer randomly selects rock, paper or scissors from an array//
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
@@ -10,15 +13,17 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection == 'Rock' && computerSelection == 'Scissors') ||
         (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
         (playerSelection == 'Paper' && computerSelection == 'Rock')) {
-            console.log("You Win! " + playerSelection + " beats " + computerSelection);
-            return 1;
-             }
+            results.textContent = "Results: You Win! " + playerSelection + " beats " + computerSelection;
+            playerScore += 1;
+            playerScorePara.textContent = `Your Score: ${playerScore}`;
+            }
     else if (playerSelection == computerSelection) {
-        console.log('Tie Game. Play Again')
+        results.textContent = 'Results: Tie Game. Play Again';
     }
     else {
-        console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
-        return 2;
+        results.textContent = 'Results: You Lose! ' + computerSelection + ' beats ' + playerSelection;
+        computerScore += 1;
+        computerScorePara.textContent = `Computer Score ${computerScore}`;
     }
 }
 
@@ -69,6 +74,9 @@ function playRound(playerSelection, computerSelection) {
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
+const results = document.querySelector('#results');
+const playerScorePara = document.querySelector('#playerScore');
+const computerScorePara = document.querySelector('#computerScore'); 
 
 rockBtn.addEventListener('click', () => {
     playRound('Rock', getComputerChoice());
@@ -81,6 +89,10 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     playRound('Scissors', getComputerChoice())
 });
+
+
+
+
 
 
 
