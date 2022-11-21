@@ -10,22 +10,35 @@ const results = document.querySelector('#results');
 const playerScorePara = document.querySelector('#playerScore');
 const computerScorePara = document.querySelector('#computerScore'); 
 const reload = document.querySelector('#reload');
+const buttons = document.querySelectorAll('.buttons');
 
 rockBtn.addEventListener('click', () => {
     playRound('Rock', getComputerChoice());
+    rockBtn.classList.add("clicked");
 });
 
 paperBtn.addEventListener('click', () => {
-    playRound('Paper', getComputerChoice())
+    playRound('Paper', getComputerChoice());
+    paperBtn.classList.add("clicked");
 });
 
 scissorsBtn.addEventListener('click', () => {
-    playRound('Scissors', getComputerChoice())
+    playRound('Scissors', getComputerChoice());
+    scissorsBtn.classList.add("clicked");
 });
 
 reload.addEventListener('click', () => {
     location.reload();
-})
+});
+
+function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; //skip if it's not a transform
+    rockBtn.classList.remove("clicked");
+    paperBtn.classList.remove("clicked");
+    scissorsBtn.classList.remove("clicked");
+};
+
+buttons.forEach(buttons => buttons.addEventListener('transitionend', removeTransition));
 
 let playerScore = 0;
 let computerScore = 0;
@@ -70,12 +83,3 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = 'Game Over. You Lose!'
     }
 };
-
-
-
-
-
-
-
-
-   

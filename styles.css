@@ -26,7 +26,7 @@ html, body {
 
 .buttons {
     display: flex;
-    min-width: 50%;
+    min-width: 40%;
     justify-content: space-around;
     padding: 20px;
 }
@@ -52,7 +52,7 @@ html, body {
     padding: 15px;
 }
 
-.clicked {
+#rockBtn.clicked, #paperBtn.clicked, #scissorsBtn.clicked {
     transform:scale(1.1);
     border-color: black;
     box-shadow: 0 0 10px black;
