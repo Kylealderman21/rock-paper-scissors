@@ -1,3 +1,4 @@
+
 #reload{
     transition: opacity 1s;
     opacity: 0;
@@ -6,3 +7,54 @@
 #reload.fadeIn {
     opacity: 1;
 }
+
+html, body {
+    height: 100%;
+    background-color: #494d5f;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+.buttons {
+    display: flex;
+    min-width: 50%;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#rockBtn, #paperBtn, #scissorsBtn {
+    font-size: 100px;
+    background-color: lightgray;
+    transition: all 0.07s;
+}
+
+#reload {
+    margin: 15px;
+    padding: 5px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#scores {
+    text-align: center;
+}
+
+#results, #playerScore, #computerScore {
+    padding: 15px;
+}
+
+.clicked {
+    transform:scale(1.1);
+    border-color: black;
+    box-shadow: 0 0 10px black;
+}
+
