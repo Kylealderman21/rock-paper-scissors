@@ -1,4 +1,5 @@
 //Coded by Kyle Alderman on October 29th, 2022//
+        //Updated November 20th, 2022//
 
 
 //DOM Nodes and Events
@@ -50,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
         else {
         results.textContent = 'Results: Uh Oh! ' + computerSelection + ' beats ' + playerSelection;
         computerScore += 1;
-        computerScorePara.textContent = `Computer Score ${computerScore}`;
+        computerScorePara.textContent = `Computer Score: ${computerScore}`;
     }
     if (playerScore === 5) {
         document.querySelector('#rockBtn').disabled = true; 
@@ -69,8 +70,6 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = 'Game Over. You Lose!'
     }
 };
-
-
 
 
 
