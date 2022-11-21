@@ -1,0 +1,8 @@
+#reload{
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+#reload.fadeIn {
+    opacity: 1;
+}
